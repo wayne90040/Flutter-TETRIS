@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class GameController extends ChangeNotifier {
 
@@ -121,15 +122,29 @@ class GameController extends ChangeNotifier {
     for (int i = 0; i < beenChosenPiece.length; i ++) {
       beenChosenPiece[i] += 10;
     }
-    notifyListeners();
-  }
-
-  void moveRight() {
-
   }
 
   void moveLeft() {
-
+    HapticFeedback.vibrate();  // 聲音回饋
+    // any -> 判斷陣列內是否有滿足條件的元素
+    if (!beenChosenPiece.any(
+            (element) => element % 10 == 0 || _landed.contains(element - 1))
+    ) {
+      for (int i = 0; i < beenChosenPiece.length; i++) {
+        beenChosenPiece[i] -= 1;
+      }
+    }
   }
 
+  void moveRight() {
+    HapticFeedback.vibrate();
+    if (!beenChosenPiece.any(
+            (element) => (element + 1) % 10 == 0 || _landed.contains(element + 1))
+    ) {
+      for (int i = 0; i < beenChosenPiece.length; i ++) {
+        beenChosenPiece[i] += 1;
+      }
+    }
+  }
+  
 }

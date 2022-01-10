@@ -65,7 +65,9 @@ class MainScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        gameController.rotatePiece();
+                      },
                       icon: const Icon(Icons.rotate_right, size: 50, color: Colors.white)
                     )
                   )

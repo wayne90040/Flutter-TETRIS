@@ -93,16 +93,49 @@ class GameController extends ChangeNotifier {
 
   void _clearRow() {
     // TODO: Clear
+    int count;
+    List<int> removeItem = [];
+
+    for (int i = 0; i < 15; i ++) {
+      removeItem.clear();
+      count = 0;
+
+      for (int j = 0; j < 10; j++) {
+        if (_landed.contains(totalOfSquares - 1 - i * 10 - j)) {
+          removeItem.add(150 - i * 10 - j);
+          count ++;
+        }
+      }
+
+      if (count == 10) {
+        for (var element in removeItem) {
+          _landed.remove(element);
+        }
+        // 往下移
+        for (int i = 0; i < _landed.length; i++) {
+          if (_landed[i] < removeItem.first) {
+            _landed[i] += 10;
+          }
+        }
+        for (int i = 0; i < _landedPiecesColor.length; i++) {
+          for (int j = 0; j < _landedPiecesColor[i].length; j++) {
+            _landedPiecesColor[i][j] += 10;
+          }
+        }
+      }
+    }
   }
 
   // 開始遊戲
   void startGame() {
     _resetPieces();  // 回到第一關
     _choosePiece();  // 選擇落下的方塊
-    const duration = Duration(milliseconds: 300);
-    Timer.periodic(duration, (timer) {
-      if (_hitFloor()) {
 
+    const duration = Duration(milliseconds: 300);
+
+    Timer.periodic(duration, (timer) {
+      _clearRow();
+      if (_hitFloor()) {
         for (int i = 0; i < beenChosenPiece.length; i++) {
           // 全部場上方塊的座標
           _landed.add(beenChosenPiece[i]);

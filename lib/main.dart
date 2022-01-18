@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tertis/game_controller.dart';
+import 'package:flutter_tertis/controller/game_controller.dart';
 import 'package:flutter_tertis/screens/main_screen.dart';
 import 'package:provider/provider.dart';
 

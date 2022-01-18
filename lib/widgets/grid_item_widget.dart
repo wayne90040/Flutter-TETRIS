@@ -15,7 +15,7 @@ class GridItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(2.0),
+      padding: const EdgeInsets.all(0),
       child: ClipRect(
         child: Container(
           color: color,

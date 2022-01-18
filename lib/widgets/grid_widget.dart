@@ -31,18 +31,21 @@ class GridWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-
     return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: totalItem,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 10,
+        childAspectRatio: 1.0,
+        mainAxisSpacing: 1,
+        crossAxisSpacing: 1
+      ),
       itemBuilder: (BuildContext context, int index) {
-
         for (int i = 0; i < _pieceColor.length; i ++ ) {
           if (landedPieces[i].contains(index)) {
             return GridItemWidget(color: _pieceColor[i]);
           }
         }
-
         if (fallPieces.contains(index)) {
           return GridItemWidget(color: fallPiecesColor);
         }
@@ -50,5 +53,4 @@ class GridWidget extends StatelessWidget {
       }
     );
   }
-
 }

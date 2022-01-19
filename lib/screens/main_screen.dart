@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tertis/constants.dart';
 import 'package:flutter_tertis/controller/game_controller.dart';
 import 'package:flutter_tertis/controller/game_controller_roatate.dart';
 import 'package:flutter_tertis/widgets/grid_widget.dart';
@@ -29,26 +30,26 @@ class MainScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(top: 20),
                 height: 50,
-                child: const Text("Tertis Game", style: TextStyle(color: Colors.white)),
+                child: const Text("Tertis Game", 
+                    style: TextStyle(color: Colors.white)),
               ),
 
               SizedBox(
-                width: 25 * 10 + 9,
-                height: 25 * 20 + 19,
+                width: itemSize * column + column - 1,  // size + space
+                height: itemSize * row + row - 1,
                 child: Consumer<GameController>(
                     builder: (context, controller, _) {
                       return GridWidget(
-                        totalItem: controller.totalOfSquares,
                         landedPieces: controller.landedPiecesColor,
-                        fallPieces: controller.beenChosenPiece,
-                        fallPiecesColor: controller.beenChosenColor,
+                        fallPieces: controller.fallingPiece,
+                        fallPiecesColor: controller.fallingPieceColor,
                       );
                     }
                 ),
               ),
 
               SizedBox(
-                width: 25 * 10 + 9,
+                width: itemSize * column + column - 1,
                 child: Row(
                   children: [
                     Expanded(

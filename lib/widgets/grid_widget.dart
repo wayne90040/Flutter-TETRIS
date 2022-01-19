@@ -1,28 +1,20 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_tertis/constants.dart';
 import 'package:flutter_tertis/widgets/grid_item_widget.dart';
 
 class GridWidget extends StatelessWidget {
 
-  final List<Color> _pieceColor = [
-    Colors.red,
-    Colors.yellow,
-    Colors.purple,
-    Colors.green,
-    Colors.blue,
-    Colors.brown,
-    Colors.pink
-  ];
-
-  final int totalItem;
+  // 已經落下的方塊
   final List<List<int>> landedPieces;
+  // 正在落下的方塊
   final List<int> fallPieces;
+  // 正在落下的方塊顏色
   final Color fallPiecesColor;
 
-  GridWidget({
+  const GridWidget({
     Key? key,
-    required this.totalItem,
     required this.landedPieces,
     required this.fallPieces,
     required this.fallPiecesColor
@@ -41,9 +33,9 @@ class GridWidget extends StatelessWidget {
         crossAxisSpacing: 1
       ),
       itemBuilder: (BuildContext context, int index) {
-        for (int i = 0; i < _pieceColor.length; i ++ ) {
+        for (int i = 0; i < pieceColors.length; i ++ ) {
           if (landedPieces[i].contains(index)) {
-            return GridItemWidget(color: _pieceColor[i]);
+            return GridItemWidget(color: pieceColors[i]);
           }
         }
         if (fallPieces.contains(index)) {

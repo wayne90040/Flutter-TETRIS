@@ -5,36 +5,12 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_tertis/constants.dart';
 
 class GameController extends ChangeNotifier {
 
-  // 掉落的方塊形狀
-  static List<List<int>> pieces = [
-    [4, 5, 14, 15],
-    [4, 14, 24, 25],
-    [5, 15, 24, 25],
-    [4, 14, 24, 34],
-    [4, 14, 15, 25],
-    [5, 15, 14, 24],
-    [4, 5, 6, 15]
-  ];
-
-  // 掉落的方塊顏色
-  static List<Color> piecesColor = [
-    Colors.red,
-    Colors.yellow,
-    Colors.purple,
-    Colors.green,
-    Colors.blue,
-    Colors.brown,
-    Colors.pink
-  ];
-
-  List<int> beenChosenPiece = [];
-  Color beenChosenColor = Colors.black;
-
-  int _totalOfSquares = 200;
-  int get totalOfSquares => _totalOfSquares;
+  List<int> fallingPiece = [];
+  Color fallingPieceColor = Colors.black;
 
   int _grade = 0;
   int get grade => _grade;
@@ -53,59 +29,43 @@ class GameController extends ChangeNotifier {
   ];
   List<List<int>> get landedPiecesColor => _landedPiecesColor;
 
-  int number = 0;
-
-  void setTotalOfSquares(int num) {
-    _totalOfSquares = num;
-    notifyListeners();
-  }
-
-  // 可以隨關卡增加圖案 對應的顏色及轉動的邏輯也要增加
-  void _resetPieces() {
-    pieces = [
-      [4, 5, 14, 15],
-      [4, 14, 24, 25],
-      [5, 15, 24, 25],
-      [4, 14, 24, 34],
-      [4, 14, 15, 25],
-      [5, 15, 14, 24],
-      [4, 5, 6, 15]
-    ];
-  }
+  late Timer _timer;
+  int index = 0;
 
   void _choosePiece() {
-    beenChosenPiece = pieces[number % pieces.length];
-    beenChosenColor = piecesColor[number % piecesColor.length];
+    fallingPiece = List.of(pieceShapes[index % pieceShapes.length]);
+    fallingPieceColor = pieceColors[index % pieceColors.length];
   }
 
   bool _hitFloor() {
     // TODO: 碰到其他方塊也需要停下來
     // beenChosenPiece.sort();
     // 撞到天花板停下
-    if (beenChosenPiece.last + 10 >= _totalOfSquares) {
+    if (fallingPiece.last + 10 >= totalItem) {
       return true;
     }
 
     // 撞到其他方塊停下
-    for (int i = 0; i < beenChosenPiece.length; i++) {
-      if (_landed.contains(beenChosenPiece[i] + 10)) {
+    for (int i = 0; i < fallingPiece.length; i++) {
+      if (_landed.contains(fallingPiece[i] + 10)) {
         return true;
       }
     }
     return false;
   }
 
+  // FIXME: Clear Row BUGS
   void _clearRow() {
     int count;
     List<int> removeItem = [];
 
     // i 行數
-    for (int i = 0; i < 20; i ++) {
+    for (int i = 0; i < row; i ++) {
       removeItem.clear();
       count = 0;
-      for (int j = 0; j < 10; j++) {
-        if (_landed.contains(_totalOfSquares - 1 - i * 10 - j)) {
-          removeItem.add(_totalOfSquares - i * 10 - j);
+      for (int j = 0; j < column; j++) {
+        if (_landed.contains(totalItem - 1 - i * column - j)) {
+          removeItem.add(totalItem - i * column - j);
           count ++;
         }
       }
@@ -115,12 +75,14 @@ class GameController extends ChangeNotifier {
         for (var element in removeItem) {
           _landed.remove(element);
         }
+
         // 往下移
         for (int i = 0; i < _landed.length; i++) {
           if (_landed[i] < removeItem.first) {
             _landed[i] += 10;
           }
         }
+
         // 顏色方塊也需要往下移
         for (int i = 0; i < _landedPiecesColor.length; i++) {
           for (int j = 0; j < _landedPiecesColor[i].length; j++) {
@@ -131,23 +93,22 @@ class GameController extends ChangeNotifier {
     }
   }
 
-  // 開始遊戲
+  // FIXME: Start Game Revamp
   void startGame() {
-    _resetPieces();  // 回到第一關
-    _choosePiece();  // 選擇落下的方塊
-
+    // 選擇落下的方塊
+    _choosePiece();
     const duration = Duration(milliseconds: 300);
 
     Timer.periodic(duration, (timer) {
       _clearRow();
       if (_hitFloor()) {
-        for (int i = 0; i < beenChosenPiece.length; i++) {
+        for (int i = 0; i < fallingPiece.length; i++) {
           // 全部場上方塊的座標
-          _landed.add(beenChosenPiece[i]);
+          _landed.add(fallingPiece[i]);
           // 掉落地板用顏色分類
-          _landedPiecesColor[number % pieces.length].add(beenChosenPiece[i]);
+          _landedPiecesColor[index % pieceShapes.length].add(fallingPiece[i]);
         }
-        number ++; // 換下一塊 -> 可以做亂數選擇
+        index ++; // 換下一塊 -> 可以做亂數選擇
         startGame();
         timer.cancel();
       } else {
@@ -157,8 +118,8 @@ class GameController extends ChangeNotifier {
   }
 
   void moveDown() {
-    for (int i = 0; i < beenChosenPiece.length; i ++) {
-      beenChosenPiece[i] += 10;
+    for (int i = 0; i < fallingPiece.length; i ++) {
+      fallingPiece[i] += column;
     }
     notifyListeners();
   }
@@ -166,22 +127,22 @@ class GameController extends ChangeNotifier {
   void moveLeft() {
     HapticFeedback.vibrate();  // 聲音回饋
     // any -> 判斷陣列內是否有滿足條件的元素
-    if (!beenChosenPiece.any(
-            (element) => element % 10 == 0 || _landed.contains(element - 1))
+    if (!fallingPiece.any(
+            (element) => element % column == 0 || _landed.contains(element - 1))
     ) {
-      for (int i = 0; i < beenChosenPiece.length; i++) {
-        beenChosenPiece[i] -= 1;
+      for (int i = 0; i < fallingPiece.length; i++) {
+        fallingPiece[i] -= 1;
       }
     }
   }
 
   void moveRight() {
     HapticFeedback.vibrate();
-    if (!beenChosenPiece.any(
-            (element) => (element + 1) % 10 == 0 || _landed.contains(element + 1))
+    if (!fallingPiece.any(
+            (element) => (element + 1) % column == 0 || _landed.contains(element + 1))
     ) {
-      for (int i = 0; i < beenChosenPiece.length; i ++) {
-        beenChosenPiece[i] += 1;
+      for (int i = 0; i < fallingPiece.length; i ++) {
+        fallingPiece[i] += 1;
       }
     }
   }

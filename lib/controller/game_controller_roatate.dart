@@ -7,75 +7,75 @@ extension Roatate on GameController {
 
   int _identityPiece() {
     int pieceNum = -1;
-    beenChosenPiece.sort();
+    fallingPiece.sort();
 
-    if (beenChosenPiece[0] + 30 == beenChosenPiece[3]) {
+    if (fallingPiece[0] + 30 == fallingPiece[3]) {
       pieceNum = 0;
-    } else if (beenChosenPiece[0] + 3 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 3 == fallingPiece[3]) {
       pieceNum = 1;
-    } else if (beenChosenPiece[0] + 10 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 + 1 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 20 + 1 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 == fallingPiece[1] &&
+        fallingPiece[0] + 10 + 1 == fallingPiece[2] &&
+        fallingPiece[0] + 20 + 1 == fallingPiece[3]) {
       pieceNum = 2;
-    } else if (beenChosenPiece[0] + 10 - 1 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 == beenChosenPiece[3] &&
-        beenChosenPiece[0] + 1 == beenChosenPiece[1]) {
+    } else if (fallingPiece[0] + 10 - 1 == fallingPiece[2] &&
+        fallingPiece[0] + 10 == fallingPiece[3] &&
+        fallingPiece[0] + 1 == fallingPiece[1]) {
       pieceNum = 3;
-    } else if (beenChosenPiece[0] + 10 - 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 + 1 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 - 1 == fallingPiece[1] &&
+        fallingPiece[0] + 10 == fallingPiece[2] &&
+        fallingPiece[0] + 10 + 1 == fallingPiece[3]) {
       pieceNum = 4;
-    } else if (beenChosenPiece[0] + 10 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 + 1 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 20 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 == fallingPiece[1] &&
+        fallingPiece[0] + 10 + 1 == fallingPiece[2] &&
+        fallingPiece[0] + 20 == fallingPiece[3]) {
       pieceNum = 5;
-    } else if (beenChosenPiece[0] + 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 2 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 + 1 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 1 == fallingPiece[1] &&
+        fallingPiece[0] + 2 == fallingPiece[2] &&
+        fallingPiece[0] + 10 + 1 == fallingPiece[3]) {
       pieceNum = 6;
-    } else if (beenChosenPiece[0] + 10 - 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 20 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 - 1 == fallingPiece[1] &&
+        fallingPiece[0] + 10 == fallingPiece[2] &&
+        fallingPiece[0] + 20 == fallingPiece[3]) {
       pieceNum = 7;
-    } else if (beenChosenPiece[0] + 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 + 1 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 20 + 1 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 1 == fallingPiece[1] &&
+        fallingPiece[0] + 10 + 1 == fallingPiece[2] &&
+        fallingPiece[0] + 20 + 1 == fallingPiece[3]) {
       pieceNum = 8;
-    } else if (beenChosenPiece[0] + 10 - 2 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 - 1 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 - 2 == fallingPiece[1] &&
+        fallingPiece[0] + 10 - 1 == fallingPiece[2] &&
+        fallingPiece[0] + 10 == fallingPiece[3]) {
       pieceNum = 9;
-    } else if (beenChosenPiece[0] + 10 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 20 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 20 + 1 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 == fallingPiece[1] &&
+        fallingPiece[0] + 20 == fallingPiece[2] &&
+        fallingPiece[0] + 20 + 1 == fallingPiece[3]) {
       pieceNum = 10;
-    } else if (beenChosenPiece[0] + 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 2 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 1 == fallingPiece[1] &&
+        fallingPiece[0] + 2 == fallingPiece[2] &&
+        fallingPiece[0] + 10 == fallingPiece[3]) {
       pieceNum = 11;
-    } else if (beenChosenPiece[0] + 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 20 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 1 == fallingPiece[1] &&
+        fallingPiece[0] + 10 == fallingPiece[2] &&
+        fallingPiece[0] + 20 == fallingPiece[3]) {
       pieceNum = 12;
-    } else if (beenChosenPiece[0] + 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 2 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 + 2 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 1 == fallingPiece[1] &&
+        fallingPiece[0] + 2 == fallingPiece[2] &&
+        fallingPiece[0] + 10 + 2 == fallingPiece[3]) {
       pieceNum = 13;
-    } else if (beenChosenPiece[0] + 10 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 20 == beenChosenPiece[3] &&
-        beenChosenPiece[0] + 20 - 1 == beenChosenPiece[2]) {
+    } else if (fallingPiece[0] + 10 == fallingPiece[1] &&
+        fallingPiece[0] + 20 == fallingPiece[3] &&
+        fallingPiece[0] + 20 - 1 == fallingPiece[2]) {
       pieceNum = 14;
-    } else if (beenChosenPiece[0] + 10 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 + 1 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 + 2 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 == fallingPiece[1] &&
+        fallingPiece[0] + 10 + 1 == fallingPiece[2] &&
+        fallingPiece[0] + 10 + 2 == fallingPiece[3]) {
       pieceNum = 15;
-    } else if (beenChosenPiece[0] + 10 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 - 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 20 - 1 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 10 == fallingPiece[2] &&
+        fallingPiece[0] + 10 - 1 == fallingPiece[1] &&
+        fallingPiece[0] + 20 - 1 == fallingPiece[3]) {
       pieceNum = 16;
-    } else if (beenChosenPiece[0] + 1 == beenChosenPiece[1] &&
-        beenChosenPiece[0] + 10 + 1 == beenChosenPiece[2] &&
-        beenChosenPiece[0] + 10 + 2 == beenChosenPiece[3]) {
+    } else if (fallingPiece[0] + 1 == fallingPiece[1] &&
+        fallingPiece[0] + 10 + 1 == fallingPiece[2] &&
+        fallingPiece[0] + 10 + 2 == fallingPiece[3]) {
       pieceNum = 17;
     }
 
@@ -83,7 +83,7 @@ extension Roatate on GameController {
   }
 
   void rotatePiece() {
-    beenChosenPiece.sort();
+    fallingPiece.sort();
     switch (_identityPiece()) {
       case 0:
         _rotate0to1();
@@ -213,279 +213,279 @@ extension Roatate on GameController {
   */
   void _rotate0to1() {
 
-    if (beenChosenPiece.first % 10 == 9) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 - 2;
-      beenChosenPiece[1] = beenChosenPiece[1] - 2;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 + 1 - 2;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 2 - 2;
+    if (fallingPiece.first % 10 == 9) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 - 2;
+      fallingPiece[1] = fallingPiece[1] - 2;
+      fallingPiece[2] = fallingPiece[2] - 10 + 1 - 2;
+      fallingPiece[3] = fallingPiece[3] - 20 + 2 - 2;
 
-    } else if (beenChosenPiece.first % 10 == 8) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] - 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 + 1 - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 2 - 1;
+    } else if (fallingPiece.first % 10 == 8) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 - 1;
+      fallingPiece[1] = fallingPiece[1] - 1;
+      fallingPiece[2] = fallingPiece[2] - 10 + 1 - 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 2 - 1;
 
-    } else if (beenChosenPiece.first % 10 == 0) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 + 1 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 2 + 1;
+    } else if (fallingPiece.first % 10 == 0) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] - 10 + 1 + 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 2 + 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 - 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 + 1 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 2 + 1;
+    } else if (landed.contains(fallingPiece.first + 10 - 1)) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] - 10 + 1 + 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 2 + 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 + 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 - 2;
-      beenChosenPiece[1] = beenChosenPiece[1] - 2;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 + 1 - 2;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 2 - 2;
+    } else if (landed.contains(fallingPiece.first + 10 + 1)) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 - 2;
+      fallingPiece[1] = fallingPiece[1] - 2;
+      fallingPiece[2] = fallingPiece[2] - 10 + 1 - 2;
+      fallingPiece[3] = fallingPiece[3] - 20 + 2 - 2;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 + 2)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] - 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 + 1 - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 2 - 1;
+    } else if (landed.contains(fallingPiece.first + 10 + 2)) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 - 1;
+      fallingPiece[1] = fallingPiece[1] - 1;
+      fallingPiece[2] = fallingPiece[2] - 10 + 1 - 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 2 - 1;
 
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1];
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 2;
+      fallingPiece[0] = fallingPiece[0] + 10 - 1;
+      fallingPiece[1] = fallingPiece[1];
+      fallingPiece[2] = fallingPiece[2] - 10 + 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 2;
 
     }
   }
 
   void _rotate1to0() {
-    if (beenChosenPiece.first + 10 > 179) {
-      beenChosenPiece[0] = beenChosenPiece[0] - 10 + 1 - 20;
-      beenChosenPiece[1] = beenChosenPiece[1] - 20;
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1 - 20;
-      beenChosenPiece[3] = beenChosenPiece[3] + 20 - 2 - 20;
+    if (fallingPiece.first + 10 > 179) {
+      fallingPiece[0] = fallingPiece[0] - 10 + 1 - 20;
+      fallingPiece[1] = fallingPiece[1] - 20;
+      fallingPiece[2] = fallingPiece[2] + 10 - 1 - 20;
+      fallingPiece[3] = fallingPiece[3] + 20 - 2 - 20;
 
-    } else if (beenChosenPiece.first + 20 > 179) {
-      beenChosenPiece[0] = beenChosenPiece[0] - 10 + 1 - 10;
-      beenChosenPiece[1] = beenChosenPiece[1] - 10;
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1 - 10;
-      beenChosenPiece[3] = beenChosenPiece[3] + 20 - 2 - 10;
+    } else if (fallingPiece.first + 20 > 179) {
+      fallingPiece[0] = fallingPiece[0] - 10 + 1 - 10;
+      fallingPiece[1] = fallingPiece[1] - 10;
+      fallingPiece[2] = fallingPiece[2] + 10 - 1 - 10;
+      fallingPiece[3] = fallingPiece[3] + 20 - 2 - 10;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 + 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] - 10 + 1 - 20;
-      beenChosenPiece[1] = beenChosenPiece[1] - 20;
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1 - 20;
-      beenChosenPiece[3] = beenChosenPiece[3] + 20 - 2 - 20;
+    } else if (landed.contains(fallingPiece.first + 10 + 1)) {
+      fallingPiece[0] = fallingPiece[0] - 10 + 1 - 20;
+      fallingPiece[1] = fallingPiece[1] - 20;
+      fallingPiece[2] = fallingPiece[2] + 10 - 1 - 20;
+      fallingPiece[3] = fallingPiece[3] + 20 - 2 - 20;
 
-    } else if (landed.contains(beenChosenPiece.first + 20 + 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] - 10 + 1 - 10;
-      beenChosenPiece[1] = beenChosenPiece[1] - 10;
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1 - 10;
-      beenChosenPiece[3] = beenChosenPiece[3] + 20 - 2 - 10;
+    } else if (landed.contains(fallingPiece.first + 20 + 1)) {
+      fallingPiece[0] = fallingPiece[0] - 10 + 1 - 10;
+      fallingPiece[1] = fallingPiece[1] - 10;
+      fallingPiece[2] = fallingPiece[2] + 10 - 1 - 10;
+      fallingPiece[3] = fallingPiece[3] + 20 - 2 - 10;
 
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0] - 10 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1];
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] + 20 - 2;
+      fallingPiece[0] = fallingPiece[0] - 10 + 1;
+      fallingPiece[1] = fallingPiece[1];
+      fallingPiece[2] = fallingPiece[2] + 10 - 1;
+      fallingPiece[3] = fallingPiece[3] + 20 - 2;
     }
   }
 
   void _rotate2to3() {
-    if (beenChosenPiece.first % 10 == 0) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 - 1 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 1;
+    if (fallingPiece.first % 10 == 0) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] - 10 - 1 + 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 - 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 - 1 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 1;
+    } else if (landed.contains(fallingPiece.first + 10 - 1)) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] - 10 - 1 + 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 1;
 
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1];
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20;
+      fallingPiece[0] = fallingPiece[0] + 10 - 1;
+      fallingPiece[1] = fallingPiece[1];
+      fallingPiece[2] = fallingPiece[2] - 10 - 1;
+      fallingPiece[3] = fallingPiece[3] - 20;
     }
   }
 
   void _rotate3to2() {
-    beenChosenPiece[0] = beenChosenPiece[0];
-    beenChosenPiece[1] = beenChosenPiece[1] + 20;
-    beenChosenPiece[2] = beenChosenPiece[2] + 2;
-    beenChosenPiece[3] = beenChosenPiece[3];
+    fallingPiece[0] = fallingPiece[0];
+    fallingPiece[1] = fallingPiece[1] + 20;
+    fallingPiece[2] = fallingPiece[2] + 2;
+    fallingPiece[3] = fallingPiece[3];
   }
 
   void _rotate4to5() {
-    beenChosenPiece[0] = beenChosenPiece[0];
-    beenChosenPiece[1] = beenChosenPiece[1] + 10 + 1;
-    beenChosenPiece[2] = beenChosenPiece[2];
-    beenChosenPiece[3] = beenChosenPiece[3];
+    fallingPiece[0] = fallingPiece[0];
+    fallingPiece[1] = fallingPiece[1] + 10 + 1;
+    fallingPiece[2] = fallingPiece[2];
+    fallingPiece[3] = fallingPiece[3];
   }
 
   void _rotate5to6() {
-    if (beenChosenPiece.first % 10 == 0) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] + 1;
+    if (fallingPiece.first % 10 == 0) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] + 1;
+      fallingPiece[3] = fallingPiece[3] + 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 - 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] + 1;
+    } else if (landed.contains(fallingPiece.first + 10 - 1)) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] + 1;
+      fallingPiece[3] = fallingPiece[3] + 1;
 
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1];
-      beenChosenPiece[2] = beenChosenPiece[2];
-      beenChosenPiece[3] = beenChosenPiece[3];
+      fallingPiece[0] = fallingPiece[0] + 10 - 1;
+      fallingPiece[1] = fallingPiece[1];
+      fallingPiece[2] = fallingPiece[2];
+      fallingPiece[3] = fallingPiece[3];
     }
   }
 
   void _rotate6to7() {
-    beenChosenPiece[0] = beenChosenPiece[0];
-    beenChosenPiece[1] = beenChosenPiece[1];
-    beenChosenPiece[2] = beenChosenPiece[2] - 10 - 1;
-    beenChosenPiece[3] = beenChosenPiece[3];
+    fallingPiece[0] = fallingPiece[0];
+    fallingPiece[1] = fallingPiece[1];
+    fallingPiece[2] = fallingPiece[2] - 10 - 1;
+    fallingPiece[3] = fallingPiece[3];
   }
 
   void _rotate7to4() {
-    if (beenChosenPiece.first % 10 == 9) {
+    if (fallingPiece.first % 10 == 9) {
 
-      beenChosenPiece[0] = beenChosenPiece[0] - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] - 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 10 + 1 - 1;
+      fallingPiece[0] = fallingPiece[0] - 1;
+      fallingPiece[1] = fallingPiece[1] - 1;
+      fallingPiece[2] = fallingPiece[2] - 1;
+      fallingPiece[3] = fallingPiece[3] - 10 + 1 - 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 + 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] - 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 10 + 1 - 1;
+    } else if (landed.contains(fallingPiece.first + 10 + 1)) {
+      fallingPiece[0] = fallingPiece[0] - 1;
+      fallingPiece[1] = fallingPiece[1] - 1;
+      fallingPiece[2] = fallingPiece[2] - 1;
+      fallingPiece[3] = fallingPiece[3] - 10 + 1 - 1;
 
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0];
-      beenChosenPiece[1] = beenChosenPiece[1];
-      beenChosenPiece[2] = beenChosenPiece[2];
-      beenChosenPiece[3] = beenChosenPiece[3] - 10 + 1;
+      fallingPiece[0] = fallingPiece[0];
+      fallingPiece[1] = fallingPiece[1];
+      fallingPiece[2] = fallingPiece[2];
+      fallingPiece[3] = fallingPiece[3] - 10 + 1;
     }
   }
 
   void _rotate8to9() {
-    beenChosenPiece[0] = beenChosenPiece[0] + 2;
-    beenChosenPiece[1] = beenChosenPiece[1] + 10 + 1;
-    beenChosenPiece[2] = beenChosenPiece[2];
-    beenChosenPiece[3] = beenChosenPiece[3] - 10 - 1;
+    fallingPiece[0] = fallingPiece[0] + 2;
+    fallingPiece[1] = fallingPiece[1] + 10 + 1;
+    fallingPiece[2] = fallingPiece[2];
+    fallingPiece[3] = fallingPiece[3] - 10 - 1;
   }
 
   void _rotate9to10() {
-    beenChosenPiece[0] = beenChosenPiece[0] - 10 - 1 - 1;
-    beenChosenPiece[1] = beenChosenPiece[1] - 10 + 1 - 1;
-    beenChosenPiece[2] = beenChosenPiece[2] - 1;
-    beenChosenPiece[3] = beenChosenPiece[3] - 1;
+    fallingPiece[0] = fallingPiece[0] - 10 - 1 - 1;
+    fallingPiece[1] = fallingPiece[1] - 10 + 1 - 1;
+    fallingPiece[2] = fallingPiece[2] - 1;
+    fallingPiece[3] = fallingPiece[3] - 1;
   }
 
   void _rotate10to11() {
-    if (beenChosenPiece.last % 10 == 9) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 + 2 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] - 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 10 - 1;
+    if (fallingPiece.last % 10 == 9) {
+      fallingPiece[0] = fallingPiece[0] + 10 + 2 - 1;
+      fallingPiece[1] = fallingPiece[1] - 1;
+      fallingPiece[2] = fallingPiece[2] - 1;
+      fallingPiece[3] = fallingPiece[3] - 10 - 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 + 2)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 + 2 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] - 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 10 - 1;
+    } else if (landed.contains(fallingPiece.first + 10 + 2)) {
+      fallingPiece[0] = fallingPiece[0] + 10 + 2 - 1;
+      fallingPiece[1] = fallingPiece[1] - 1;
+      fallingPiece[2] = fallingPiece[2] - 1;
+      fallingPiece[3] = fallingPiece[3] - 10 - 1;
 
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 + 2;
-      beenChosenPiece[1] = beenChosenPiece[1];
-      beenChosenPiece[2] = beenChosenPiece[2];
-      beenChosenPiece[3] = beenChosenPiece[3] - 10;
+      fallingPiece[0] = fallingPiece[0] + 10 + 2;
+      fallingPiece[1] = fallingPiece[1];
+      fallingPiece[2] = fallingPiece[2];
+      fallingPiece[3] = fallingPiece[3] - 10;
 
     }
   }
 
   void _rotate11to8() {
-    beenChosenPiece[0] = beenChosenPiece[0] - 10;
-    beenChosenPiece[1] = beenChosenPiece[1];
-    beenChosenPiece[2] = beenChosenPiece[2] - 10 - 1;
-    beenChosenPiece[3] = beenChosenPiece[3] + 1;
+    fallingPiece[0] = fallingPiece[0] - 10;
+    fallingPiece[1] = fallingPiece[1];
+    fallingPiece[2] = fallingPiece[2] - 10 - 1;
+    fallingPiece[3] = fallingPiece[3] + 1;
   }
 
   void _rotate12to13() {
-    beenChosenPiece[0] = beenChosenPiece[0];
-    beenChosenPiece[1] = beenChosenPiece[1];
-    beenChosenPiece[2] = beenChosenPiece[2] - 10 - 1;
-    beenChosenPiece[3] = beenChosenPiece[3] - 10 + 1;
+    fallingPiece[0] = fallingPiece[0];
+    fallingPiece[1] = fallingPiece[1];
+    fallingPiece[2] = fallingPiece[2] - 10 - 1;
+    fallingPiece[3] = fallingPiece[3] - 10 + 1;
   }
 
   void _rotate13to14() {
-    beenChosenPiece[0] = beenChosenPiece[0] - 10 + 2;
-    beenChosenPiece[1] = beenChosenPiece[1] + 10;
-    beenChosenPiece[2] = beenChosenPiece[2];
-    beenChosenPiece[3] = beenChosenPiece[3];
+    fallingPiece[0] = fallingPiece[0] - 10 + 2;
+    fallingPiece[1] = fallingPiece[1] + 10;
+    fallingPiece[2] = fallingPiece[2];
+    fallingPiece[3] = fallingPiece[3];
   }
 
   void _rotate14to15() {
-    if (beenChosenPiece.last % 10 == 9) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 10 + 1 - 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 1;
+    if (fallingPiece.last % 10 == 9) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 - 1;
+      fallingPiece[1] = fallingPiece[1] + 10 + 1 - 1;
+      fallingPiece[2] = fallingPiece[2] - 1;
+      fallingPiece[3] = fallingPiece[3] - 1;
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 10 + 1;
-      beenChosenPiece[2] = beenChosenPiece[2];
-      beenChosenPiece[3] = beenChosenPiece[3];
+      fallingPiece[0] = fallingPiece[0] + 10 - 1;
+      fallingPiece[1] = fallingPiece[1] + 10 + 1;
+      fallingPiece[2] = fallingPiece[2];
+      fallingPiece[3] = fallingPiece[3];
     }
   }
 
   void _rotate15to12() {
-    beenChosenPiece[0] = beenChosenPiece[0];
-    beenChosenPiece[1] = beenChosenPiece[1];
-    beenChosenPiece[2] = beenChosenPiece[2] - 20;
-    beenChosenPiece[3] = beenChosenPiece[3] - 20 - 2;
+    fallingPiece[0] = fallingPiece[0];
+    fallingPiece[1] = fallingPiece[1];
+    fallingPiece[2] = fallingPiece[2] - 20;
+    fallingPiece[3] = fallingPiece[3] - 20 - 2;
   }
 
   void _rotate16to17() {
 
-    if (beenChosenPiece.first % 10 == 1) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 2 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] + 1 + 1;
+    if (fallingPiece.first % 10 == 1) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 2 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] + 10 - 1 + 1;
+      fallingPiece[3] = fallingPiece[3] + 1 + 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 - 1)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 1 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] - 10 - 1 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] - 20 + 1;
+    } else if (landed.contains(fallingPiece.first + 10 - 1)) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 1 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] - 10 - 1 + 1;
+      fallingPiece[3] = fallingPiece[3] - 20 + 1;
 
-    } else if (landed.contains(beenChosenPiece.first + 10 - 2)) {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 2 + 1;
-      beenChosenPiece[1] = beenChosenPiece[1] + 1;
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1 + 1;
-      beenChosenPiece[3] = beenChosenPiece[3] + 1 + 1;
+    } else if (landed.contains(fallingPiece.first + 10 - 2)) {
+      fallingPiece[0] = fallingPiece[0] + 10 - 2 + 1;
+      fallingPiece[1] = fallingPiece[1] + 1;
+      fallingPiece[2] = fallingPiece[2] + 10 - 1 + 1;
+      fallingPiece[3] = fallingPiece[3] + 1 + 1;
 
     } else {
-      beenChosenPiece[0] = beenChosenPiece[0] + 10 - 2;
-      beenChosenPiece[1] = beenChosenPiece[1];
-      beenChosenPiece[2] = beenChosenPiece[2] + 10 - 1;
-      beenChosenPiece[3] = beenChosenPiece[3] + 1;
+      fallingPiece[0] = fallingPiece[0] + 10 - 2;
+      fallingPiece[1] = fallingPiece[1];
+      fallingPiece[2] = fallingPiece[2] + 10 - 1;
+      fallingPiece[3] = fallingPiece[3] + 1;
     }
   }
 
   void _rotate17to16() {
-    beenChosenPiece[0] = beenChosenPiece[0] + 1;
-    beenChosenPiece[1] = beenChosenPiece[1] + 1;
-    beenChosenPiece[2] = beenChosenPiece[2] - 1 + 1;
-    beenChosenPiece[3] = beenChosenPiece[3] - 1 - 20 + 1;
+    fallingPiece[0] = fallingPiece[0] + 1;
+    fallingPiece[1] = fallingPiece[1] + 1;
+    fallingPiece[2] = fallingPiece[2] - 1 + 1;
+    fallingPiece[3] = fallingPiece[3] - 1 - 20 + 1;
   }
 }

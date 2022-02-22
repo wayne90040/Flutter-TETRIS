@@ -5,6 +5,7 @@ import 'package:flutter_tertis/controller/game_controller_roatate.dart';
 import 'package:provider/provider.dart';
 
 class GameControl extends StatelessWidget {
+
   const GameControl({
     Key? key
   }) : super(key: key);
@@ -12,41 +13,52 @@ class GameControl extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+
     return Consumer<GameController>(
       builder: (context, controller, _) =>
         Row(
           children: [
             Expanded(
               child: IconButton(
-                  onPressed: () {
-                    controller.startGame();
-                  },
-                  icon: const Icon(Icons.play_circle_fill, size: 50, color: Colors.white)
-              ),
-            ),
-            Expanded(
-                child: IconButton(
-                    onPressed: () {
-                      controller.moveLeft();
-                    },
-                    icon: const Icon(Icons.arrow_left, size: 50, color: Colors.white)
-                )
+                onPressed: () {
+                  controller.clean();
+                },
+                icon: const Icon(Icons.refresh_sharp, color: Colors.white)
+              )
             ),
             Expanded(
               child: IconButton(
-                  onPressed: () {
-                    controller.moveRight();
-                  },
-                  icon: const Icon(Icons.arrow_right, size: 50, color: Colors.white)
+                onPressed: () {
+                  controller.play();
+                },
+                icon: Icon(
+                    controller.isPlay ? Icons.stop : Icons.play_circle_fill,
+                    color: Colors.white)
               ),
             ),
             Expanded(
-                child: IconButton(
-                    onPressed: () {
-                      controller.rotatePiece();
-                    },
-                    icon: const Icon(Icons.rotate_right, size: 50, color: Colors.white)
-                )
+              child: IconButton(
+                onPressed: () {
+                  controller.moveLeft();
+                },
+                icon: const Icon(Icons.arrow_left, color: Colors.white)
+              )
+            ),
+            Expanded(
+              child: IconButton(
+                onPressed: () {
+                  controller.moveRight();
+                },
+                icon: const Icon(Icons.arrow_right, color: Colors.white)
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                onPressed: () {
+                  controller.rotatePiece();
+                },
+                icon: const Icon(Icons.rotate_right, color: Colors.white)
+              )
             ),
           ]
         )

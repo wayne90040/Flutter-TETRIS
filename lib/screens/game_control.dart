@@ -13,7 +13,6 @@ class GameControl extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
     return Consumer<GameController>(
       builder: (context, controller, _) =>
         Row(

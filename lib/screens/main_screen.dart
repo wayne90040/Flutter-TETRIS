@@ -41,20 +41,40 @@ class MainScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: SizedBox(
             width: double.infinity,
-            child: Column(
-              children: <Widget>[
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Column(
+                  children: <Widget>[
 
-                header(),
+                    header(),
 
-                const SizedBox(
-                  width: ITEMSIZE * COLUMN + COLUMN - 1,
-                  height: ITEMSIZE * ROW + ROW - 1,
-                  child: GameScreen()
+                    const SizedBox(
+                        width: ITEMSIZE * COLUMN + COLUMN - 1,
+                        height: ITEMSIZE * ROW + ROW - 1,
+                        child: GameScreen()
+                    ),
+
+                    const SizedBox(
+                        width: ITEMSIZE * COLUMN + COLUMN - 1,
+                        child: GameControl()
+                    )
+                  ],
                 ),
 
-               const SizedBox(
-                  width: ITEMSIZE * COLUMN + COLUMN - 1,
-                  child: GameControl()
+                Positioned(
+                  child: Consumer<GameController>(
+                    builder: (BuildContext context, controller, Widget? child) =>
+                      Opacity(
+                        opacity: 0.6,
+                        child: Text("${controller.grade}",
+                          style: const TextStyle(
+                              fontSize: 24,
+                              color: Colors.white,
+                          ),
+                        ),
+                      ),
+                  )
                 )
               ],
             ),
@@ -71,6 +91,8 @@ class MainScreen extends StatelessWidget {
         child: const Text("TERTIS GAME",
             style: TextStyle(color: Colors.white))
       );
+
+
 }
 
 
